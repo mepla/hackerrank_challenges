@@ -1,14 +1,16 @@
+from collections import OrderedDict
+
 
 def word_order(words):
-    distinct_words = []
-    second_output = ''
+    all_dict = OrderedDict()
     for word in words:
-        if word not in distinct_words:
-            distinct_words.append(word)
-            second_output += str(words.count(word)) + ' '
+        if word not in all_dict:
+            all_dict[word] = '1'
+        else:
+            all_dict[word] = str(int(all_dict[word]) + 1)
 
-    print len(distinct_words)
-    print second_output.strip()
+    print len(all_dict)
+    print ' '.join(all_dict.values())
 
 if __name__ == '__main__':
     TEST = True
@@ -23,4 +25,4 @@ if __name__ == '__main__':
 
     word_order(lines)
 
-# Passed 5/8
+# Passed 8/8
